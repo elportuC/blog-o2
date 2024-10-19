@@ -1,18 +1,51 @@
-{% load static %}
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <title>Mi Navbar</title>
+  <style>
+    /* Estilos CSS */
+    nav {
+      background-color: #024b1e;
+      overflow: hidden;
+    }
+
+    nav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    nav a:hover   
+ {
+      background-color: #ddd;
+      color: rgb(0, 0, 0);
+    }
+
+    nav a.active {
+      background-color: #04AA6D;
+      color: white;
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <a href="{% url 'post_list' %}">Home</a>
-    </header>
-    {% block content %}
-    {% endblock content %}
+<body>   
+
+<div>
+    <nav>
+        <a href="{% url 'home' %}">home</a>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <input type="submit" value="Log out">
+        </form>
+
+      </nav>
+    
+</div>
+
+    {%block content%}
+
+    {% endblock %}
 </body>
 </html>

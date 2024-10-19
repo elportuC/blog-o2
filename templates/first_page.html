@@ -1,0 +1,16 @@
+
+
+{% if user.is_authenticated %}
+
+    <p>Hola {{user.username}}</p>
+    <a href="{% url 'post_list' %}">Experimento</a>
+
+{% else %}
+
+    <p>Si no tienes una cuenta Registrate</p>
+    <a href="{% url 'signup' %}">Signup</a>
+    <br>
+    <p>Si ya tienes cuenta ya puedes ingresar</p>
+    <a href="{% url 'login' %}">iniciar seccion</a>
+
+    {% endif %}
